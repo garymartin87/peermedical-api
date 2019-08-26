@@ -6,12 +6,14 @@ const userModel = require('../models/user');
 const paramsValidatorMidd = require('../middlewares/paramsValidator');
 
 const createUser = async (req, res, next) => {
-    const { name, avatar } = req.body;
-
-    let newUser = new userModel({ name, avatar });
-    newUser.save().then(user => console.log('savedAs', user));
-
-    res.send('OK');
+    try {
+        const { name, avatar } = req.body;
+        const newUser = await new userModel({ name, avatar }).save();
+        res.send(newUser);
+    } catch (err) {
+        err.status = 500;
+        return next(err);
+    }
 };
 
 router.post(
