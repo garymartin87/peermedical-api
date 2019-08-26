@@ -11,6 +11,8 @@ router.get('/', ({ res }) => res.send('peermedical-api available'));
 
 // users
 router.post('/users', (req, res) => {
+    const { title, text } = req.body;
+
     const UserModel = mongoose.model('User');
     let newUser = new UserModel({
         name: 'Gary',
