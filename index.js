@@ -1,11 +1,14 @@
-require('dotenv').config();
-
 const express = require('express');
-const app = express();
+require('dotenv').config();
+//var mongoose = require('mongoose');
 
 const routes = require('./routes/index');
+
+const app = express();
+
 app.use('/', routes);
 
-app.listen(process.env.PORT, () =>
-    console.log(`peermedical-api listening on port ${process.env.PORT}!`)
+let port = process.env.PORT || 3000;
+app.listen(port, () =>
+    console.log(`peermedical-api listening on port ${port}!`)
 );

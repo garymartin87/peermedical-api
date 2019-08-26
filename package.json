@@ -19,7 +19,8 @@
   "homepage": "https://github.com/garymartin87/peermedical-api#readme",
   "dependencies": {
     "dotenv": "^8.1.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.6.11"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",
