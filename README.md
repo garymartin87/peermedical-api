@@ -1,9 +1,13 @@
 # peermedical-api
 Peer Medical - Assessment
 
-Pre-Requisites:
+### Pre-Requisites
 - MongoDB
 - NodeJS
 
-Set-Up your enviroment:
-1. Create .env file from .env.example.
+### Build and run peermedical-api
+1. Clone the repository.
+2. Create `.env` file based on `.env.example` file.
+3. Install npm dependencies: `$ npm install`.
+
+Note: To authenticate the user pass a header with name `Authorization`.

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user');
+const articleController = require('../controllers/article');
 const authorizationMidd = require('../middlewares/authorization');
 
 // index
@@ -11,6 +12,7 @@ router.use(authorizationMidd.checkAuthorization);
 
 // users
 router.use('/users/', userController);
+router.use('/articles/', articleController);
 
 // error handler
 router.use(function(err, req, res, next) {

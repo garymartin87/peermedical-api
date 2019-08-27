@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/', routes);
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
@@ -15,8 +16,8 @@ mongoose.connection.on('open', function(ref) {
     return startServer();
 });
 mongoose.connection.on('error', function(err) {
-    console.log('Could not connect to mongo server!');
-    return console.error(err);
+    console.log(' ***** Could not connect to mongo server! Check .env file *****');
+    return ;
 });
 
 const startServer = () => {
