@@ -16,8 +16,10 @@ mongoose.connection.on('open', function(ref) {
     return startServer();
 });
 mongoose.connection.on('error', function(err) {
-    console.log(' ***** Could not connect to mongo server! Check .env file *****');
-    return ;
+    console.log(
+        ' ***** Could not connect to mongo server! Check .env file *****'
+    );
+    return;
 });
 
 const startServer = () => {

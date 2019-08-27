@@ -118,9 +118,7 @@ router.patch(
     '/:id',
     [
         check('id').matches(/^[0-9a-fA-F]{24}$/),
-        check('userId')
-            .optional()
-            .matches(/^[0-9a-fA-F]{24}$/),
+        check('userId').matches(/^[0-9a-fA-F]{24}$/),
         check('title').isAscii(),
         check('text').isAscii(),
         check('tags.*').isLength({ min: 1 }),
