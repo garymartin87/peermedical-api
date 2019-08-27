@@ -11,7 +11,7 @@ Peer Medical - Assessment
 3. Install npm dependencies: `$ npm install`.
 
 ### Methods
-#####Notes
+##### Notes
 - To authenticate the user pass the token into a header with name `Authorization`.
 - `application/json` and `application/x-www-form-urlencoded` accepted.
 ### `GET` - `/users`
