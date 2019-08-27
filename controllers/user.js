@@ -5,6 +5,7 @@ const { check } = require('express-validator');
 const userModel = require('../models/user');
 const paramsValidatorMidd = require('../middlewares/paramsValidator');
 
+// handlers
 const createUser = async (req, res, next) => {
     try {
         const { name, avatar } = req.body;
@@ -22,11 +23,7 @@ const getUsers = async (req, res, next) => {
 };
 
 // routes
-
-router.get(
-    '/',
-    getUsers
-);
+router.get('/', getUsers);
 
 router.post(
     '/',
