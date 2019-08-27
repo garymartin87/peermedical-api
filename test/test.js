@@ -11,7 +11,7 @@ describe('/users', () => {
     });
 
     describe('unauthorized request', () => {
-        it('should return 404 when no authorization', async () => {
+        it('should return 401 when no authorization header', async () => {
             const res = await request(app).get('/users');
             expect(res.status).to.equal(401);
         });
@@ -43,7 +43,7 @@ describe('/users', () => {
     });
 
     describe('create user', () => {
-        it('should return user when the all request body is valid', async () => {
+        it('should return user when data is valid', async () => {
             const res = await request(app)
                 .post('/users')
                 .set('Authorization', process.env.API_TOKEN)
