@@ -28,3 +28,5 @@ const startServer = () => {
         console.log(`peermedical-api listening on port ${port}!`)
     );
 };
+
+module.exports = app;
