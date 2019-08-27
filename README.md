@@ -9,6 +9,7 @@ Peer Medical - Assessment
 1. Clone the repository.
 2. Create `.env` file based on `.env.example` file.
 3. Install npm dependencies: `$ npm install`.
+4. Run! `$ npm run dev`.
 
 ### Methods
 ##### Notes
