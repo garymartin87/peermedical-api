@@ -42,10 +42,10 @@ Create an article.
 curl -XPOST -H 'Authorization: 5CD4ED173E1C95FE763B753A297D5' -H "Content-type: application/json" -d '{"userId": "5d654ffd5bea091f6c600fb9","title": "Tips to Enhance the Performance of Your React App","text": "Lorem Ipsum","tags": ["pop","rock"]}' 'http://localhost:3000/articles'
 ```
 
-### `PATCH` - `/articles/:id`
+### `PUT` - `/articles/:id`
 Modify an article.
 ```
-curl -XPATCH -H 'Authorization: 5CD4ED173E1C95FE763B753A297D5' -H "Content-type: application/json" -d '{"tags": ["development","reactjs"],"userId": "5d654ffd5bea091f6c600fb9","title": "Introduction to Internet of Things","text": "Lorem Ipsum"}' 'http://localhost:3000/articles/5d6551565bea091f6c600fbd' 
+curl -XPUT -H 'Authorization: 5CD4ED173E1C95FE763B753A297D5' -H "Content-type: application/json" -d '{"tags": ["development","reactjs"],"userId": "5d654ffd5bea091f6c600fb9","title": "Introduction to Internet of Things","text": "Lorem Ipsum"}' 'http://localhost:3000/articles/5d6551565bea091f6c600fbd' 
 ```
 
 ### `DELETE` - `/articles/:id`
