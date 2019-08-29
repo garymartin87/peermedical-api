@@ -114,7 +114,7 @@ router.post(
     createArticle
 );
 
-router.patch(
+router.put(
     '/:id',
     [
         check('id').matches(/^[0-9a-fA-F]{24}$/),
