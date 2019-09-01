@@ -34,8 +34,8 @@ Create user.
 ##### Body example (`application/json`)
 ```
 {
-	"name": "Gary Martin",
-	"avatar": "https://scontent.faep9-1.fna.fbcdn.net/v/t31.0-8/18319336_768394413320390_6488937265712347698_o.jpg"
+    "name": "Gary Martin",
+    "avatar": "https://scontent.faep9-1.fna.fbcdn.net/v/t31.0-8/18319336_768394413320390_6488937265712347698_o.jpg"
 }
 ```
 
