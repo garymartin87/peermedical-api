@@ -6,7 +6,7 @@ const userSchema = new Schema(
         name: { type: String, required: true },
         avatar: { type: String, required: true },
     },
-    { collection: 'users' }
+    { collection: 'users', versionKey: false }
 );
 
 const userModel = mongoose.model('User', userSchema);
