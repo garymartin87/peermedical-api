@@ -8,7 +8,7 @@ const articleSchema = new Schema(
         text: { type: String, required: true },
         tags: [String],
     },
-    { collection: 'articles' }
+    { collection: 'articles', versionKey: false }
 );
 
 const articleModel = mongoose.model('Article', articleSchema);
