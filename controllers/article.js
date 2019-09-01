@@ -135,6 +135,9 @@ router.post(
         check('userId').matches(/^[0-9a-fA-F]{24}$/),
         check('title').isAscii(),
         check('text').isAscii(),
+        check('tags').custom(value => {
+            return Array.isArray(value) && value.length > 0;
+        }),
         check('tags.*').isLength({ min: 1 }),
     ],
     paramsValidatorMidd.validateParams,
@@ -148,6 +151,9 @@ router.put(
         check('userId').matches(/^[0-9a-fA-F]{24}$/),
         check('title').isAscii(),
         check('text').isAscii(),
+        check('tags').custom(value => {
+            return Array.isArray(value) && value.length > 0;
+        }),
         check('tags.*').isLength({ min: 1 }),
     ],
     paramsValidatorMidd.validateParams,
@@ -170,6 +176,11 @@ router.patch(
         check('text')
             .optional()
             .isAscii(),
+        check('tags')
+            .optional()
+            .custom(value => {
+                return Array.isArray(value) && value.length > 0;
+            }),
         check('tags.*')
             .optional()
             .isLength({ min: 1 }),
