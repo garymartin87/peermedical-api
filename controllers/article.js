@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { check, validator } = require('express-validator');
+const { check } = require('express-validator');
 
 const articleModel = require('../models/article');
 const userModel = require('../models/user');
@@ -82,6 +82,33 @@ const updateArticle = async (req, res, next) => {
     }
 };
 
+const patchArticle = async (req, res, next) => {
+    // get params
+    const { id } = req.params;
+
+    // check if user exists
+    const { userId } = req.body;
+    if (userId) {
+        const user = await userModel.findById(userId);
+        if (!user) {
+            const err = new Error('User does not exist');
+            err.status = 422;
+            return next(err);
+        }
+    }
+
+    // update article
+    const result = await articleModel.updateOne(
+        { _id: id },
+        { $set: req.body },
+        { new: true }
+    );
+
+    // send response
+    const article = await articleModel.findById(id);
+    res.send(article);
+};
+
 const deleteArticle = async (req, res, next) => {
     try {
         // get params
@@ -126,6 +153,30 @@ router.put(
     paramsValidatorMidd.validateParams,
     articleMidd.articleExists,
     updateArticle
+);
+
+router.patch(
+    '/:id',
+    [
+        check('id')
+            .optional()
+            .matches(/^[0-9a-fA-F]{24}$/),
+        check('userId')
+            .optional()
+            .matches(/^[0-9a-fA-F]{24}$/),
+        check('title')
+            .optional()
+            .isAscii(),
+        check('text')
+            .optional()
+            .isAscii(),
+        check('tags.*')
+            .optional()
+            .isLength({ min: 1 }),
+    ],
+    paramsValidatorMidd.validateParams,
+    articleMidd.articleExists,
+    patchArticle
 );
 
 router.delete(
