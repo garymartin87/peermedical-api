@@ -73,8 +73,25 @@ Create an article.
 curl -XPOST -H 'Authorization: 5CD4ED173E1C95FE763B753A297D5' -H "Content-type: application/json" -d '{"userId": "5d654ffd5bea091f6c600fb9","title": "Tips to Enhance the Performance of Your Express Api","text": "Lorem Ipsum...","tags": ["development","express"]}' 'http://localhost:3000/articles'
 ```
 
+### `PATCH` - `/articles/:_id`
+Modify an article attributes. All parameters are optional.
+
+##### Body example (`application/json`)
+```
+{
+    "title": "Introduction to Redux",
+    "text": "Lorem Ipsum...",
+    "tags": ["development","react", "redux"]
+}
+```
+
+##### Curl example
+```
+curl -XPATCH -H 'Authorization: 5CD4ED173E1C95FE763B753A297D5' -H "Content-type: application/json" -d '{"tags": ["development","react", "redux"],"title": "Introduction to Redux","text": "Lorem Ipsum..."}' 'http://localhost:3000/articles/5d6551565bea091f6c600fbd' 
+```
+
 ### `PUT` - `/articles/:_id`
-Modify an article.
+Modify an entire article.
 
 ##### Body example (`application/json`)
 ```
