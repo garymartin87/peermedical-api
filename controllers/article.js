@@ -11,7 +11,7 @@ const articleMidd = require('../middlewares/article');
 const createArticle = async (req, res, next) => {
     try {
         // get params
-        const { userId, title, text, tags } = req.body;
+        const { userId } = req.body;
 
         // check if user exists
         const user = await userModel.findById(userId);
@@ -22,12 +22,7 @@ const createArticle = async (req, res, next) => {
         }
 
         // create article
-        const articleData = {
-            userId,
-            title,
-            text,
-            tags,
-        };
+        const articleData = req.body;
         const article = await new articleModel(articleData).save();
 
         // send response
@@ -113,7 +108,6 @@ const deleteArticle = async (req, res, next) => {
     try {
         // get params
         const { id } = req.params;
-        const { userId, title, text, tags } = req.body;
 
         // delete article
         await articleModel.deleteOne({ _id: id });
